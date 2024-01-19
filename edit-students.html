@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit-s.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <title>Edit Student Details - Admin</title>
+</head>
+<body>
+    <header>
+        <h1>Edit Student Details - Admin</h1>
+        
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h2>Edit Student Details</h2>
+            <form id="editStudentForm" onsubmit="updateStudent(event)">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" name="studentName" value="Sanket Sonawane" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Student Email:</label>
+                    <input type="email" id="studentEmail" name="studentEmail" value="sanket.sonawane@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentID">Student ID:</label>
+                    <input type="text" id="studentID" name="studentID" value="1" readonly>
+                </div>
+
+                
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        
+        function updateStudent(event) {
+            event.preventDefault();
+
+            
+            var updatedName = document.getElementById("studentName").value;
+            var updatedEmail = document.getElementById("studentEmail").value;
+            var studentID = document.getElementById("studentID").value;
+
+            
+            var allStudentsLink = document.querySelector('a[href="single-student-admin.html?id=' + studentID + '"]');
+            if (allStudentsLink) {
+                allStudentsLink.textContent = updatedName; 
+            }
+
+            
+            alert("Changes saved successfully!");
+        }
+    </script>
+</body>
+</html>
